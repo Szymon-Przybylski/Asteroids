@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asteroids", "asteroids.csproj", "{3F8EBF95-99E0-4510-A516-E1569B39D889}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9669863C-8A2A-43B5-806A-75C4784271C1}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F8EBF95-99E0-4510-A516-E1569B39D889}.Debug|x86.ActiveCfg = Debug|x86
+		{3F8EBF95-99E0-4510-A516-E1569B39D889}.Debug|x86.Build.0 = Debug|x86
+		{3F8EBF95-99E0-4510-A516-E1569B39D889}.Release|x86.ActiveCfg = Release|x86
+		{3F8EBF95-99E0-4510-A516-E1569B39D889}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {075A76BF-49B1-4F2E-8E98-9E3BEFCFF355}
+	EndGlobalSection
+EndGlobal
