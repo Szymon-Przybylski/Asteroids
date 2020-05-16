@@ -9,57 +9,49 @@ namespace asteroids
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        SpaceShip player;
-
-        int screenWidth;
-        int screenHeight;
-        Vector2 screenCenter;
+        Asteroid asteroid = new Asteroid();
+        Player player = new Player();
+        Background bg = new Background();
 
         public Asteroids()
         {
-            graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1360;
-            graphics.PreferredBackBufferHeight = 768;
-            graphics.ApplyChanges();
+            graphics = new GraphicsDeviceManager(this)
+            {
+                IsFullScreen = false,
+                PreferredBackBufferWidth = (int)Settings.Properties.screenWidth,
+                PreferredBackBufferHeight = (int)Settings.Properties.screenHeight
+            };
+
+            this.Window.Title = "Asteroids";
             Content.RootDirectory = "Content";
         }
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-            
-            Window.Title = "Asteroids";
-            screenCenter = new Vector2(graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2);
-            screenWidth = graphics.PreferredBackBufferWidth;
-            screenHeight = graphics.PreferredBackBufferHeight;
-
-
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
-            player = new SpaceShip(Content, screenCenter);
+            asteroid.LoadContent(Content);
+            player.LoadContent(Content);
+            bg.LoadContent(Content);
         }
 
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
             Content.Unload();
         }
 
         protected override void Update(GameTime gameTime)
         {
-
-            player.Update(screenWidth, screenHeight);
+            asteroid.Update(gameTime);
+            player.Update(gameTime);
+            bg.Update(gameTime);
 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
 
             base.Update(gameTime);
         }
@@ -68,8 +60,9 @@ namespace asteroids
         {
             GraphicsDevice.Clear(Color.Black);
 
-            // TODO: Add your drawing code here
             spriteBatch.Begin();
+            bg.Draw(spriteBatch);
+            asteroid.Draw(spriteBatch);
             player.Draw(spriteBatch);
             spriteBatch.End();
 
